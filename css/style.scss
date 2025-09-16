@@ -376,7 +376,7 @@ top
   }
 }
 /*============
-children
+子ページ総合
 =============*/
 .chil-head_pc1 {
   display: flex;
@@ -425,7 +425,15 @@ children
 }
 #tittle {
   .tittle-pc {
-    display: block;
+    display: flex;
+    color: #03ac2d;
+    font-size: 180%;
+    font-weight: bold;
+    align-items: center;
+    border-bottom: 1px solid #03ac2d;
+    img {
+      width: 7%;
+    }
     @include mq() {
       display: none;
     }
@@ -464,6 +472,26 @@ children
     padding: 1rem;
   }
 }
+.midashi1 {
+  font-size: 150%;
+  font-weight: bold;
+  border-bottom: solid 3px #9a6600;
+  position: relative;
+  padding-left: 0.5em;
+  margin-top: 1rem;
+  &:after {
+    position: absolute;
+    content: " ";
+    display: block;
+    border-bottom: solid 3px #03ac2d;
+    bottom: -3px;
+    width: 30%;
+  }
+}
+
+/*============
+個別
+=============*/
 .product-list {
   display: flex;
   justify-content: space-between;
@@ -489,6 +517,56 @@ children
       @include mq() {
         display: block;
       }
+    }
+  }
+}
+table {
+  margin: 20px auto;
+}
+.tbl-2col th {
+  color: #333;
+  padding: 10px;
+}
+.tbl-2col td {
+  padding: 10px;
+}
+
+@media screen and (max-width: 640px) {
+  .last td:last-child {
+    width: 100%;
+  }
+  .tbl-2col {
+    width: 100%;
+  }
+  .tbl-2col th,
+  .tbl-2col td {
+    border-bottom: none;
+    display: block;
+    width: 100%;
+    border: 1px solid #9a6600;
+  }
+  .tbl-2col th {
+    background-color: #fff;
+  }
+}
+.servis {
+  margin: 2em 0;
+  border: 1px solid #9a6600;
+  .box-title {
+    padding: 1rem;
+    border: 1px solid #9a6600;
+    text-align: center;
+    background-color: #fff;
+    img {
+      width: 60%;
+    }
+  }
+  .servis-box {
+    margin: 2rem;
+    img {
+      width: 20%;
+      display: flex;
+      margin: 0 0 0 auto;
     }
   }
 }
