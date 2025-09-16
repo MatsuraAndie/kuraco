@@ -1,0 +1,358 @@
+/*--------------------------------------------------
+sass property
+---------------------------------------------------*/
+$color1: #214d7c;
+$color2: #afe0f2;
+$black: #333;
+
+$breakpoints: (
+  "sm": "screen and (max-width: 320px)",
+  "md": "screen and (max-width: 699px)",
+  "lg": "screen and (max-width: 1024px)",
+) !default;
+
+@mixin mq($breakpoint: md) {
+  @media #{map-get($breakpoints, $breakpoint)} {
+    @content;
+  }
+}
+
+@mixin wrap {
+  max-width: 700px;
+  margin: 0 auto;
+}
+
+@mixin flex {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  flex-wrap: wrap;
+
+  @include mq() {
+    display: block;
+  }
+}
+
+/*--------------------------------------------------
+basic
+---------------------------------------------------*/
+html,
+body {
+  overflow-x: hidden;
+}
+body {
+  font-family: "Noto Sans JP", sans-serif;
+  color: $black;
+  font-size: 80%;
+  font-weight: 400;
+  font-style: normal;
+  line-height: 1.5;
+  letter-spacing: 0.1em;
+  vertical-align: baseline;
+  line-break: strict;
+  word-wrap: break-word !important;
+  overflow-wrap: break-word;
+  outline: none;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+a {
+  display: block;
+  color: $black;
+  text-decoration: none;
+  transition: all 1s;
+}
+
+ul {
+  padding-inline-start: 0;
+}
+
+figure {
+  figcaption {
+    display: none;
+
+    @include mq() {
+      display: block;
+      text-align: right;
+      margin-top: 0.5rem;
+
+      img {
+        object-fit: cover;
+        width: 100%;
+      }
+    }
+  }
+}
+
+/*--------------------------------------------------
+all
+---------------------------------------------------*/
+.wrap {
+  @include wrap;
+}
+
+/*============
+header
+=============*/
+header {
+  position: relative;
+  padding: 1rem 0;
+  @include mq() {
+    padding-top: 0;
+  }
+}
+
+.head_pc {
+  display: block;
+  @media screen and (max-width: 699px) {
+    display: none;
+  }
+  h1 {
+    width: 195px;
+    object-fit: cover;
+  }
+  .head_pc-menu {
+    display: flex;
+    justify-content: space-between;
+    figure {
+      width: 290px;
+    }
+    ul {
+      display: flex;
+    }
+  }
+}
+
+.menu-btn {
+  position: relative;
+  width: 100px;
+  height: 40px;
+  margin: 0 auto;
+  display: block;
+  border-radius: 12px;
+  overflow: hidden;
+  cursor: pointer;
+}
+.menu-btn img {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  -webkit-transform: translate(-50%, -50%);
+  transform: translate(-50%, -50%);
+  width: 100%;
+  display: block;
+  -webkit-transition: 0.4s ease-in-out;
+  transition: 0.4s ease-in-out;
+}
+.menu-btn:hover img:nth-of-type(2) {
+  opacity: 0;
+}
+
+.head_sp {
+  display: none;
+  @media screen and (max-width: 699px) {
+    display: block;
+    padding: 1rem 1rem 0 1rem;
+  }
+}
+
+.hamburger {
+  position: fixed;
+  top: 20px;
+  right: 20px;
+  z-index: 100;
+  width: 48px;
+  height: 48px;
+  border: none;
+  background: transparent;
+  cursor: pointer;
+}
+
+.hamburger__line {
+  position: absolute;
+  left: 11px;
+  width: 26px;
+  height: 2px;
+  background-color: #01118c;
+  transition: all 0.4s;
+}
+
+.hamburger__line:nth-of-type(1) {
+  top: 14px;
+}
+.hamburger__line:nth-of-type(2) {
+  top: 23px;
+}
+.hamburger__line:nth-of-type(3) {
+  top: 32px;
+}
+
+/* メニューオープン時 */
+.hamburger.active .hamburger__line:nth-of-type(1) {
+  transform: translateY(9px) rotate(-45deg);
+}
+.hamburger.active .hamburger__line:nth-of-type(2) {
+  opacity: 0;
+}
+.hamburger.active .hamburger__line:nth-of-type(3) {
+  transform: translateY(-9px) rotate(45deg);
+}
+
+.nav {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 300px;
+  height: 100vh;
+  background-color: #fff;
+  box-shadow: 2px 0 4px rgba(0, 0, 0, 0.1);
+  transform: translateX(-100%);
+  transition: transform 0.4s;
+  z-index: 90;
+}
+
+.nav.active {
+  transform: translateX(0);
+}
+
+.nav__list {
+  margin: 0;
+  padding: 100px 0 0;
+  list-style: none;
+}
+
+.nav__item {
+  padding: 0 20px;
+}
+
+.nav__link {
+  display: block;
+  padding: 15px 0;
+  color: #333;
+  text-decoration: none;
+  border-bottom: 1px solid #eee;
+}
+
+/*============
+top
+=============*/
+.top-pc {
+  display: block;
+  width: 100%;
+  img {
+    object-fit: cover;
+    border-radius: 0.5rem;
+    margin-bottom: 20px;
+  }
+  @include mq() {
+    display: none;
+  }
+}
+.top-sp {
+  display: none;
+  @include mq() {
+    display: block;
+    width: 100%;
+  }
+}
+
+.top-flex {
+  display: flex;
+  justify-content: space-between;
+  @include mq() {
+    background-color: #f2f2f2;
+    display: block;
+    padding: 1.5rem;
+  }
+}
+#top_left {
+  width: 310px;
+  @include mq() {
+    width: 100%;
+  }
+}
+.topic {
+  h2 {
+    display: flex;
+    align-items: center;
+    color: #03ac2d;
+    font-weight: bold;
+    font-size: 140%;
+    padding-bottom: 0.5rem;
+  }
+  ul {
+    border-top: 1px solid #333;
+    border-bottom: 1px solid #333;
+    background-color: #fff;
+    padding: 0.5rem;
+    margin-bottom: 2rem;
+    font-size: 90%;
+    li {
+      padding-bottom: 0.5rem;
+    }
+  }
+}
+#top_right {
+  width: 305px;
+  @include mq() {
+    width: 100%;
+    margin-top: 2rem;
+  }
+}
+
+.top-text {
+  h2 {
+    display: flex;
+    color: #9a6600;
+    font-weight: bold;
+    font-size: 130%;
+    img {
+      padding-right: 1rem;
+    }
+  }
+}
+.top-pdf {
+  margin-top: 2rem;
+}
+
+#top_right {
+  ul {
+    li {
+      padding-bottom: 1rem;
+    }
+  }
+}
+.right-btn {
+  position: relative;
+  width: 305px;
+  height: 90px;
+  margin: 0 auto;
+  display: block;
+  border-radius: 12px;
+  overflow: hidden;
+  cursor: pointer;
+  @include mq() {
+    width: 100%;
+  }
+}
+.right-btn img {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  -webkit-transform: translate(-50%, -50%);
+  transform: translate(-50%, -50%);
+  width: 100%;
+  display: block;
+  -webkit-transition: 0.4s ease-in-out;
+  transition: 0.4s ease-in-out;
+}
+.right-btn:hover img:nth-of-type(2) {
+  opacity: 0;
+}
+
+.copy {
+  border-top: 2px solid #03ac2d;
+  font-size: 40%;
+  text-align: center;
+}
