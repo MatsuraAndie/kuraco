@@ -1,8 +1,6 @@
 /*--------------------------------------------------
 sass property
 ---------------------------------------------------*/
-$color1: #214d7c;
-$color2: #afe0f2;
 $black: #333;
 
 $breakpoints: (
@@ -67,7 +65,11 @@ a {
 ul {
   padding-inline-start: 0;
 }
-
+img {
+  width: 100%;
+  vertical-align: top;
+  height: auto !important;
+}
 figure {
   figcaption {
     display: none;
@@ -115,11 +117,16 @@ header {
   .head_pc-menu {
     display: flex;
     justify-content: space-between;
+    align-items: center;
     figure {
-      width: 290px;
+      width: 300px;
+      img {
+        width: 100%;
+      }
     }
     ul {
       display: flex;
+      width: calc(400 / 5);
     }
   }
 }
@@ -154,6 +161,9 @@ header {
   @media screen and (max-width: 699px) {
     display: block;
     padding: 1rem 1rem 0 1rem;
+    h1 {
+      width: 60%;
+    }
   }
 }
 
@@ -279,7 +289,10 @@ top
     color: #03ac2d;
     font-weight: bold;
     font-size: 140%;
-    padding-bottom: 0.5rem;
+    padding: 1rem 0 0 0;
+    img {
+      width: 15%;
+    }
   }
   ul {
     border-top: 1px solid #333;
@@ -308,11 +321,13 @@ top
     font-weight: bold;
     font-size: 130%;
     img {
+      width: 20%;
       padding-right: 1rem;
     }
   }
 }
 .top-pdf {
+  width: 30%;
   margin-top: 2rem;
 }
 
@@ -329,7 +344,6 @@ top
   height: 90px;
   margin: 0 auto;
   display: block;
-  border-radius: 12px;
   overflow: hidden;
   cursor: pointer;
   @include mq() {
@@ -355,4 +369,126 @@ top
   border-top: 2px solid #03ac2d;
   font-size: 40%;
   text-align: center;
+  padding-top: 0.5rem;
+  @include mq() {
+    background-color: #03ac2d;
+    color: #fff;
+  }
+}
+/*============
+children
+=============*/
+.chil-head_pc1 {
+  display: flex;
+  align-items: center;
+  margin-bottom: 1rem;
+  h1 {
+    width: 210px;
+  }
+  figure {
+    width: 330px;
+  }
+}
+.chil-head_pc-menu {
+  ul {
+    display: flex;
+    border-bottom: 2px solid #cdcdcd;
+    padding-bottom: 0.3rem;
+    .menu-btn {
+      position: relative;
+      width: 115px;
+      height: 40px;
+      margin: 0 auto;
+      display: block;
+      overflow: hidden;
+      cursor: pointer;
+    }
+    .menu-btn img {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      -webkit-transform: translate(-50%, -50%);
+      transform: translate(-50%, -50%);
+      width: 100%;
+      display: block;
+      -webkit-transition: 0.4s ease-in-out;
+      transition: 0.4s ease-in-out;
+    }
+    .menu-btn:hover img:nth-of-type(2) {
+      opacity: 0;
+    }
+    .under {
+      padding-bottom: 0.2rem;
+      border-bottom: 3px solid #9a6600;
+    }
+  }
+}
+#tittle {
+  .tittle-pc {
+    display: block;
+    @include mq() {
+      display: none;
+    }
+  }
+  .tittle-sp {
+    display: none;
+    @include mq() {
+      display: flex;
+      align-items: center;
+      color: #333;
+      font-weight: bold;
+      font-size: 150%;
+      padding: 1rem 0 0 0;
+      border-bottom: 1px solid #03ac2d;
+      img {
+        width: 15%;
+      }
+      span {
+        color: #03ac2d;
+        font-size: 70%;
+        padding-left: 0.5em;
+      }
+    }
+  }
+}
+
+#child-sec {
+  @include mq() {
+    background-color: #f2f2f2;
+  }
+  h2 {
+    width: 95%;
+    margin: 0 auto;
+  }
+  .child-box {
+    padding: 1rem;
+  }
+}
+.product-list {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 1rem;
+  @include mq() {
+    display: block;
+  }
+
+  li {
+    width: calc(100% / 3 - 10px);
+    @include mq() {
+      width: 100%;
+      padding: 0.5rem 0;
+    }
+    .pc {
+      display: block;
+      @include mq() {
+        display: none;
+      }
+    }
+    .sp {
+      display: none;
+      @include mq() {
+        display: block;
+      }
+    }
+  }
 }
