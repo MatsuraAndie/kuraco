@@ -570,3 +570,42 @@ table {
     }
   }
 }
+
+.tbl-catalog th {
+  background: #ffffcc;
+  border: solid 1px #ccc;
+  color: #333;
+  padding: 10px;
+}
+.tbl-catalog td {
+  border: solid 1px #ccc;
+  padding: 5px;
+}
+@media screen and (max-width: 699px) {
+  .tbl-catalog {
+    width: 100%;
+  }
+  .tbl-catalog .thead {
+    display: none;
+  }
+  .tbl-catalog tr {
+    width: 100%;
+  }
+  .tbl-catalog td {
+    display: block;
+    text-align: right;
+    width: 100%;
+  }
+  .tbl-catalog td:first-child {
+    background: #ffffcc;
+    color: #333;
+    font-weight: bold;
+    text-align: center;
+  }
+  .tbl-catalog td:before {
+    content: attr(data-label);
+    float: left;
+    font-weight: bold;
+    margin-right: 10px;
+  }
+}
