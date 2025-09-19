@@ -609,3 +609,9 @@ table {
     margin-right: 10px;
   }
 }
+.table-a th,
+td {
+  border: solid 1px #ccc;
+  color: #333;
+  padding: 5px;
+}
